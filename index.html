@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotstar-clone</title>
+    <link rel="icon" href="images/logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kalam:wght@300;400;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Oswald:wght@200..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-1 bg-black">
+                <div class="sidebar d-flex flex-column justify-content-center position-fixed w-100 w-sm-auto">
+                    <div class="p-1 mt-3 logo d-none d-md-block">
+                        <img src="images/lr.png" height="60">
+                        <div>
+                            <p class="btn btn1 mt-1">Subscribe</p>
+                        </div>
+                    </div>
+                     <div class="nav-icons">
+                        <div class="text-center mt-4 icon">
+                            <a href=""><i class="fa-solid fa-house"></i></a>
+                            <a href="#" class="nav-link ms-5">Home</a>
+                        </div>
+                        <div class="text-center mt-4 icon">
+                            <a href=""> <i class="fa-solid fa-magnifying-glass"></i></a>
+                            <a href="#" class="nav-link ms-5">Search</a>
+                        </div>
+                        <div class="text-center mt-4 icon d-none d-sm-inline-flex">
+                            <a href=""> <i class="fa-solid fa-tv"></i> </a>
+                            <a href="#" class="nav-link ms-5">TV</a>
+                        </div>
+                        <div class="text-center mt-4 icon">
+                            <a href=""> <i class="fa-solid fa-file-video"></i> </a>
+                            <a href="#" class="nav-link ms-5">Movies</a>
+                        </div>
+                        <div class="d-flex text mt-4 text-center icon">
+                            <a href=""> <i class="fa-solid fa-baseball-bat-ball"></i> </a>
+                            <a href="#" class="nav-link ms-5">Sports</a>
+                        </div>
+                        <div class="text-center mt-4 icon d-none d-sm-inline-flex">
+                            <a href=""> <i class="fa-solid fa-spray-can-sparkles"></i> </a>
+                            <a href="#" class="nav-link ms-5">Sparks</a>
+                        </div>
+                        <div class="text-center mt-4 icon">
+                            <a href=""> <i class="fa-solid fa-layer-group"></i></a>
+                            <a href="#" class="nav-link ms-5">Categories</a>
+                        </div>
+                        <div class="text-center mt-4 icon">
+                            <a href="" data-bs-toggle="modal" data-bs-target="#loginModal"> <i class="fa-solid fa-user"></i></a>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal"
+                                class="text-white nav-link ms-5">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-11">
+                <!-- Modal -->
+                <div class="modal fade w-100 mx-auto" id="loginModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content login-box">
+                            <div class="modal-header border-0">
+                                <h4 class="fw-bold mx-auto text-light text-center">Login or sign up to continue</h4>
+                                <button type="button" class="btn-close btn-close-white"
+                                    data-bs-dismiss="modal"></button>
+                            </div>
+                            <p class="text-center text-secondary mb-4">Scan QR code or enter phone number to login</p>
+                            <div class="modal-body">
+                                <div class="row align-items-center">
+                                    <!-- Left QR Section -->
+                                    <div class="col-md-6 text-center qr-box">
+                                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=HotstarLogin"
+                                            alt="QR Code">
+                                        <h6 class="fw-semibold text-light">Use Camera App to Scan QR</h6>
+                                        <p class="text-secondary small fs-6">
+                                            Click on the link generated to <br> redirect to JioHotstar mobile app
+                                        </p>
+                                    </div>
+
+                                    <!-- OR Divider -->
+                                    <div class="col-md-1 d-flex flex-column align-items-center">
+                                        <span class="or-divider">OR</span>
+                                    </div>
+
+                                    <!-- Right Phone Login -->
+                                    <div class="col-md-5">
+                                        <div class="input-group mb-3 login-input">
+                                            <span class="input-group-text">+91</span>
+                                            <input type="text" class="form-control  bg-transparent"
+                                                placeholder="Enter mobile number">
+                                        </div>
+                                        <p class="text-light">Having trouble logging in?<a href="#"
+                                                class="text-info small"> Get Help</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Top image -->
+                <div class="my-2">
+                    <img src="images/top-image/BiggBoss19Hindi1DTG_BB_W-c996656f-7e8f-4bfe-8ff2-8484da08c31e (2).jpg"
+                        class="w-100 img-fluid rounded-4" style="height: 40vh;" alt="">
+                </div>
+                <!-- Video -->
+                <!-- Carousel -->
+                <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+
+                        <!-- Video Slide -->
+                        <div class="carousel-item active">
+                            <video class="w-100 rounded-4 v" style="object-fit: cover;" autoplay muted loop>
+                                <source src="video/videoplayback.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <!-- Caption -->
+                            <div class="carousel-caption custom-caption d-none d-md-block">
+                                <h1 class="fw-bold">Trending song 2025 5min : 3sec</h1>
+                                <p class="lead">Watch the latest episodes and drama unfold here. Lorem ipsum dolor sit
+                                    amet consectetur adipisicing elit. Voluptatem, at mollitia reprehenderit culpa
+                                    accusamus suscipit dolores natus autem voluptates possimus.</p>
+                                <a href="#" class="btn btn-danger btn-lg mt-3 main-btn">Watch Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Image Slide 1 -->
+                        <div class="carousel-item">
+                            <img src="images/slider/1755899826050-i.webp" class="w-100 h-100 img-fluid rounded-4"
+                                style="object-fit: cover; height: 90vh;" alt="...">
+                            <div class="carousel-caption custom-caption d-none d-md-block">
+                                <h1 class="fw-bold">Exclusive Episode</h1>
+                                <p class="lead">Stream new episodes every night at 10 PM. Lorem, ipsum dolor sit amet
+                                    consectetur adipisicing elit. Velit assumenda porro cumque impedit odio perspiciatis
+                                    enim laborum accusantium doloribus consequatur.</p>
+                                <a href="#" class="btn btn-danger btn-lg mt-3 main-btn">Watch Now</a>
+                            </div>
+                        </div>
+                        <!-- Image Slide 1 -->
+                        <div class="carousel-item">
+                            <img src="images/slider/1754475058991-i.webp" class="w-100 h-100 img-fluid rounded-4"
+                                style="object-fit: cover; height: 90vh;" alt="...">
+                            <div class="carousel-caption custom-caption d-none d-md-block">
+                                <h1 class="fw-bold">Exclusive Episode</h1>
+                                <p class="lead">Stream new episodes every night at 10 PM. Lorem, ipsum dolor sit amet
+                                    consectetur adipisicing elit. Velit assumenda porro cumque impedit odio perspiciatis
+                                    enim laborum accusantium doloribus consequatur.</p>
+                                <a href="#" class="btn btn-danger btn-lg mt-3 main-btn">Watch Now</a>
+                            </div>
+                        </div>
+                        <!-- Image Slide 1 -->
+                        <div class="carousel-item">
+                            <img src="images/slider/1755168359501-i.webp" class="w-100 h-100 img-fluid rounded-4"
+                                style="object-fit: cover; height: 90vh;" alt="...">
+                            <div class="carousel-caption custom-caption d-none d-md-block">
+                                <h1 class="fw-bold">Exclusive Episode</h1>
+                                <p class="lead">Stream new episodes every night at 10 PM. Lorem, ipsum dolor sit amet
+                                    consectetur adipisicing elit. Velit assumenda porro cumque impedit odio perspiciatis
+                                    enim laborum accusantium doloribus consequatur.</p>
+                                <a href="#" class="btn btn-danger btn-lg mt-3 main-btn">Watch Now</a>
+                            </div>
+                        </div>
+                        <!-- Image Slide 1 -->
+                        <div class="carousel-item">
+                            <img src="images/slider/1755694466101-i.webp" class="w-100 h-100 img-fluid rounded-4"
+                                style="object-fit: cover; height: 90vh;" alt="...">
+                            <div class="carousel-caption custom-caption d-none d-md-block">
+                                <h1 class="fw-bold">Exclusive Episode</h1>
+                                <p class="lead">Stream new episodes every night at 10 PM. Lorem, ipsum dolor sit amet
+                                    consectetur adipisicing elit. Velit assumenda porro cumque impedit odio perspiciatis
+                                    enim laborum accusantium doloribus consequatur.</p>
+                                <a href="#" class="btn btn-danger btn-lg mt-3 main-btn">Watch Now</a>
+                            </div>
+                        </div>
+                        <!-- Image Slide 1 -->
+                        <div class="carousel-item">
+                            <img src="images/slider/1755822623470-i.webp" class="w-100 h-100 img-fluid rounded-4"
+                                style="object-fit: cover; height: 90vh;" alt="...">
+                            <div class="carousel-caption custom-caption d-none d-md-block">
+                                <h1 class="fw-bold">Exclusive Episode</h1>
+                                <p class="lead">Stream new episodes every night at 10 PM. Lorem, ipsum dolor sit amet
+                                    consectetur adipisicing elit. Velit assumenda porro cumque impedit odio perspiciatis
+                                    enim laborum accusantium doloribus consequatur.</p>
+                                <a href="#" class="btn btn-danger btn-lg mt-3 main-btn">Watch Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <button class="carousel-control-prev position-absolute" type="button" data-bs-target="#myCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next position-absolute" type="button" data-bs-target="#myCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+
+                <!-- <div class="card-overlay">
+                    <div class="cover">
+                        <h4>Trending song 2025 5min : 3sec</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tenetur assumenda a ipsam
+                            dolorem temporibus exercitationem qui quasi tempore voluptatem sint quam veniam facere,
+                            saepe
+
+                        </p>
+                        <a href="#" class="main-btn d-block text-center text-decoration-none">Watch Now</a>
+                    </div>
+                </div> -->
+                <h6>Latest Releases</h6>
+                <div class="row my-4">
+                    <h4 class="text-white mb-3">Trending Movies</h4>
+                    <div class="scroll-row">
+                        <!-- Repeat these cards (20–25 times) -->
+                        <div class="movie-card">
+                            <img src="images/S.jpg" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description Lorem ipsum dolor sit, amet consectetur adipisicing
+                                    elit. Sapiente,
+                                    debitis enim odit ea recusandae iste.</p>
+                            </div>
+                        </div>
+
+                        <div class="movie-card">
+                            <img src="images/poster 4.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/poster 5.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/poster 6.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/poster 7.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/poster 8.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/poster 9.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/poster 10.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/poster 11.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/poster 12.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/poster 1.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/poster 2.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/poster 3.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+
+                        <!-- 👆 isi tarah aur 20-25 cards -->
+                    </div>
+                </div>
+                <div class="row my-4">
+                    <h4 class="text-white mb-3">Action Movies</h4>
+                    <div class="scroll-row">
+                        <!-- Repeat these cards (20–25 times) -->
+                        <div class="movie-card">
+                            <img src="images/action-movies/1734949412015-i.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description Lorem ipsum dolor sit, amet consectetur adipisicing
+                                    elit. Sapiente,
+                                    debitis enim odit ea recusandae iste.</p>
+                            </div>
+                        </div>
+
+                        <div class="movie-card">
+                            <img src="images/action-movies/1000034506-v.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/action-movies/1734945421848-v.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/action-movies/1734512593121-v.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/action-movies/1753421693041-v.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/action-movies/1744026234844-t.avif" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/action-movies/1734266387978-v.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/action-movies/1734512482983-v.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/action-movies/1744631691246-v.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/action-movies/1745511879759-v.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/poster 1.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/poster 2.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/poster 3.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+
+                        <!-- 👆 isi tarah aur 20-25 cards -->
+                    </div>
+                </div>
+                <div class="row my-4">
+                    <h4 class="text-white mb-3">Non Stop Sports</h4>
+                    <div class="scroll-row">
+                        <!-- Repeat these cards (20–25 times) -->
+                        <div class="movie-card">
+                            <img src="images/sports/1755866251515-h.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description Lorem ipsum dolor sit, amet consectetur adipisicing
+                                    elit. Sapiente,
+                                    debitis enim odit ea recusandae iste.</p>
+                            </div>
+                        </div>
+
+                        <div class="movie-card">
+                            <img src="images/sports/1755847108091-h.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/sports/1755866856303-h.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/sports/1755887536686-h.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/sports/1755777085695-h.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/sports/1755862161584-h.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/sports/1755871536671-h.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/sports/1755882020790-h.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/poster 11.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/poster 12.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/poster 1.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/poster 2.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/poster 3.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+
+                        <!-- 👆 isi tarah aur 20-25 cards -->
+                    </div>
+                </div>
+                <div class="row my-4">
+                    <h4 class="text-white mb-3">Drama Delights</h4>
+                    <div class="scroll-row">
+                        <!-- Repeat these cards (20–25 times) -->
+                        <div class="movie-card">
+                            <img src="images/drama-img/1755500481300-v.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description Lorem ipsum dolor sit, amet consectetur adipisicing
+                                    elit. Sapiente,
+                                    debitis enim odit ea recusandae iste.</p>
+                            </div>
+                        </div>
+
+                        <div class="movie-card">
+                            <img src="images/drama-img/1754287614186-v.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/drama-img/1751286713774-v.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/drama-img/1754054576353-v.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/drama-img/1754195614036-v.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/drama-img/1753701019863-v.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/drama-img/1713770241856-v.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/drama-img/1731322767842-v.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/drama-img/1734424746174-i.webp" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/poster 12.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/poster 1.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/poster 2.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="images/poster 3.png" alt="Movie Poster">
+                            <div class="overlay">
+                                <div class="action-btn">
+                                    <span>Watch Now</span>
+                                    <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                                </div>
+                                <h5 class="mt-2">Movie Title</h5>
+                                <p class="mb-0">Some description...</p>
+                            </div>
+                        </div>
+
+                        <!-- 👆 isi tarah aur 20-25 cards -->
+                    </div>
+                </div>
+
+
+
+
+                <!-- Footer -->
+                <footer class="ext-white pt-5 pb-3 mt-5">
+                    <div class="container">
+                        <div class="row text-center text-md-start">
+
+                            <!-- Logo -->
+                            <div class="col-md-3 text-white mb-4">
+                                <h4 class="fw-bold">Hotstar</h4>
+                                <p class="text-white ">Stream your favorite shows, movies, sports & more.</p>
+                            </div>
+
+                            <!-- Footer links -->
+                            <div class="col-md-3 text-white mb-4">
+                                <h6 class="text-uppercase fw-bold">Company</h6>
+                                <ul class="list-unstyled">
+                                    <li><a href="#" class="text-white text-decoration-none">About</a></li>
+                                    <li><a href="#" class="text-white text-decoration-none">Careers</a></li>
+                                    <li><a href="#" class="text-white text-decoration-none">Blog</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-3 text-white mb-4">
+                                <h6 class="text-uppercase fw-bold">Support</h6>
+                                <ul class="list-unstyled">
+                                    <li><a href="#" class="text-white text-decoration-none">Help Center</a></li>
+                                    <li><a href="#" class="text-white text-decoration-none">Terms of Use</a></li>
+                                    <li><a href="#" class="text-white text-decoration-none">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Social Media -->
+                            <div class="col-md-3 text-white mb-4">
+                                <h6 class="text-uppercase fw-bold">Connect with Us</h6>
+                                <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
+                                <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                                <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                                <a href="#" class="text-white ><i class=" fab fa-youtube fa-lg"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Copyright -->
+                        <div class="text-center border-top text-light border-secondary pt-3">
+                            <small class="text-white">&copy; 2025 Hotstar Clone. All rights reserved.</small>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+
+
+
+           
+
+
+            
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
